@@ -43,3 +43,4 @@ Angular app expects backend at `http://localhost:3000/api`.
 - This project is prepared as a deployable scaffold with structured files.
 - You should run `npm install` and test locally before production deployment.
 - For production, build Angular and serve static files via Nginx/Vercel/Netlify, and deploy backend separately.
+"# yasmina-ice-cream" 
