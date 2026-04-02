@@ -1,0 +1,11 @@
+.auth-wrap { display: flex; justify-content: center; }
+.auth-card {
+  width: min(100%, 560px);
+  padding: 34px;
+  border-radius: 34px;
+  display: grid;
+  gap: 14px;
+}
+.auth-card h1 { font-size: 3rem; margin: 4px 0 12px; }
+.auth-note, .error-text { color: var(--muted); }
+.error-text { color: #c34c3b; font-weight: 700; }

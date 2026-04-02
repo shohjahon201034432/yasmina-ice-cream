@@ -1,0 +1,26 @@
+<section class="section auth-wrap">
+  <form class="auth-card glass-card" (ngSubmit)="submit()">
+    <span class="badge">{{ language.t('createAccount') }}</span>
+    <h1>{{ language.t('signUp') }}</h1>
+
+    <input [(ngModel)]="form.name" name="name" type="text" [placeholder]="language.t('fullName')" required>
+
+    <input [(ngModel)]="form.email" name="email" type="email" [placeholder]="language.t('email')" required>
+
+    <input [(ngModel)]="form.password" name="password" type="password" [placeholder]="language.t('password')"
+      minlength="6" required>
+
+    <button type="submit" class="btn btn-primary">
+      {{ language.t('signUp') }}
+    </button>
+
+    @if (error) {
+    <p class="error-text">{{ error }}</p>
+    }
+
+    <p class="auth-note">
+      {{ language.t('alreadyHaveAccount') }}
+      <a routerLink="/auth/sign-in">{{ language.t('signIn') }}</a>
+    </p>
+  </form>
+</section>

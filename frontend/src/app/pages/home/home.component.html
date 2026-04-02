@@ -1,0 +1,39 @@
+<section class="section hero-grid">
+  <div class="hero-copy">
+    <span class="badge">{{ language.t('heroBadge') }}</span>
+    <h1>{{ language.t('heroTitle') }}</h1>
+    <p>{{ language.t('heroText') }}</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" routerLink="/auth/sign-up">
+        {{ language.t('signUp') }}
+      </a>
+      <a class="btn btn-secondary" routerLink="/flavors">
+        {{ language.t('explore') }}
+      </a>
+    </div>
+
+    <div class="stats-grid">
+      @for (item of stats; track item.key) {
+      <article class="stat-card glass-card">
+        <h3>{{ item.value }}</h3>
+        <p>{{ language.t(item.key) }}</p>
+      </article>
+      }
+    </div>
+  </div>
+
+  <div class="hero-visual floating-stage">
+    <div class="floating-ball ball-large"></div>
+    <div class="floating-ball ball-medium"></div>
+    <div class="floating-ball ball-small"></div>
+
+    <article class="spotlight-card glass-card hover-lift">
+      <img src="assets/images/logo-round.png" alt="logo">
+      <div>
+        <h3>{{ language.t('yasminaSignature') }}</h3>
+        <p>{{ language.t('caramelVanilla') }}</p>
+      </div>
+    </article>
+  </div>
+</section>

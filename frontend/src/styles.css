@@ -1,0 +1,108 @@
+:root {
+  --bg: #f6eee5;
+  --bg-accent: #f1e0ce;
+  --surface: rgba(255,255,255,0.56);
+  --surface-2: #ead8c7;
+  --text: #4a2b17;
+  --muted: #7c624f;
+  --primary: #b77843;
+  --primary-dark: #9e6437;
+  --line: rgba(111, 72, 39, 0.12);
+  --shadow: 0 20px 60px rgba(130, 82, 40, 0.12);
+}
+body[data-theme='dark'] {
+  --bg: #17110d;
+  --bg-accent: #241914;
+  --surface: rgba(40, 28, 22, 0.72);
+  --surface-2: #2c1d16;
+  --text: #f5e6d7;
+  --muted: #d0b39a;
+  --primary: #d39b69;
+  --primary-dark: #bf8550;
+  --line: rgba(255, 226, 201, 0.08);
+  --shadow: 0 20px 60px rgba(0,0,0,0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(242,220,197,0.7), transparent 32%),
+    radial-gradient(circle at top right, rgba(232,200,165,0.45), transparent 28%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-accent) 100%);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+p { line-height: 1.7; }
+a, button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+.page-shell { min-height: calc(100vh - 220px); }
+.section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 36px 20px;
+}
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--primary);
+  font-weight: 700;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 14px 24px;
+  text-decoration: none;
+  border: 0;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+}
+.btn:hover, .hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(149, 93, 45, 0.18);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+.btn-secondary {
+  background: var(--surface-2);
+  color: var(--text);
+}
+input, textarea, select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.42);
+  color: var(--text);
+  outline: none;
+}
+body[data-theme='dark'] input,
+body[data-theme='dark'] textarea,
+body[data-theme='dark'] select {
+  background: rgba(255,255,255,0.03);
+}
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}

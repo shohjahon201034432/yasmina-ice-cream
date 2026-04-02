@@ -1,0 +1,19 @@
+<section class="section page-intro">
+  <span class="badge">{{ lang.t('signatureMenu') }}</span>
+  <h1>{{ lang.t('flavorsTitle') }}</h1>
+  <p>{{ lang.t('flavorsText') }}</p>
+</section>
+
+<section class="section flavor-grid">
+  @for (flavor of flavors; track flavor.id) {
+  <article class="flavor-card glass-card hover-lift">
+    <div class="scoop-art"></div>
+    <h3>{{ flavor.name }}</h3>
+    <p>{{ flavor.subtitle }}</p>
+    <div class="row-between">
+      <strong>{{ flavor.price }}</strong>
+      <button class="btn btn-primary">{{ lang.t('orderVibe') }}</button>
+    </div>
+  </article>
+  }
+</section>

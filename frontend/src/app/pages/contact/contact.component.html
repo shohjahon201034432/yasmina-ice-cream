@@ -1,0 +1,22 @@
+<section class="section contact-grid">
+  <div class="contact-copy">
+    <span class="badge">{{ language.t('contactBadge') }}</span>
+    <h1>{{ language.t('contactTitle') }}</h1>
+    <p>{{ language.t('contactText') }}</p>
+  </div>
+
+  <form class="glass-card contact-form" (ngSubmit)="submit()">
+    <input [(ngModel)]="form.name" name="name" [placeholder]="language.t('name')" required>
+    <input [(ngModel)]="form.email" name="email" type="email" [placeholder]="language.t('email')" required>
+    <textarea [(ngModel)]="form.message" name="message" rows="6" [placeholder]="language.t('message')"
+      required></textarea>
+
+    <button class="btn btn-primary" type="submit">
+      {{ language.t('sendMessage') }}
+    </button>
+
+    @if (success) {
+    <p class="success">{{ success }}</p>
+    }
+  </form>
+</section>

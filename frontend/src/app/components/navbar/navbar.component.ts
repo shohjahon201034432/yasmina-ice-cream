@@ -1,0 +1,24 @@
+import { Component, computed, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LanguageService, AppLanguage } from '../../services/language.service';
+import { ThemeService } from '../../services/theme.service';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
+})
+export class NavbarComponent {
+  readonly language = inject(LanguageService);
+  readonly theme = inject(ThemeService);
+  readonly auth = inject(AuthService);
+  readonly currentUser = computed(() => this.auth.user());
+
+  setLanguage(value: string): void {
+    this.language.setLanguage(value as AppLanguage);
+  }
+}
