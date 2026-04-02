@@ -8,10 +8,18 @@
   </a>
 
   <nav class="nav-links">
-    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">{{ language.t('home') }}</a>
-    <a routerLink="/flavors" routerLinkActive="active">{{ language.t('flavors') }}</a>
-    <a routerLink="/story" routerLinkActive="active">{{ language.t('story') }}</a>
-    <a routerLink="/contact" routerLinkActive="active">{{ language.t('contact') }}</a>
+    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+      {{ language.t('home') }}
+    </a>
+    <a routerLink="/flavors" routerLinkActive="active">
+      {{ language.t('flavors') }}
+    </a>
+    <a routerLink="/story" routerLinkActive="active">
+      {{ language.t('story') }}
+    </a>
+    <a routerLink="/contact" routerLinkActive="active">
+      {{ language.t('contact') }}
+    </a>
   </nav>
 
   <div class="nav-actions">
@@ -20,14 +28,14 @@
       <option value="uz">UZ</option>
       <option value="ru">RU</option>
     </select>
-    <button class="icon-pill" (click)="theme.toggleTheme()">{{ theme.currentTheme === 'dark' ? '☀️' : '🌙' }}</button>
 
-    @if (!currentUser()) {
-      <a class="btn btn-secondary" routerLink="/auth/sign-in">{{ language.t('signIn') }}</a>
-      <a class="btn btn-primary" routerLink="/auth/sign-up">{{ language.t('signUp') }}</a>
-    } @else {
-      <span class="user-chip">{{ currentUser()?.name }}</span>
-      <button class="btn btn-primary" (click)="auth.logout()">Logout</button>
-    }
+    <button class="icon-pill" (click)="theme.toggleTheme()">
+      {{ theme.currentTheme === 'dark' ? '☀️' : '🌙' }}
+    </button>
+
+    <!-- CTA BUTTON -->
+    <a class="btn btn-primary" routerLink="/contact">
+      {{ language.t('contact') }}
+    </a>
   </div>
 </header>

@@ -11,19 +11,33 @@ import { LanguageService } from '../../services/language.service';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  private readonly http = inject(HttpClient);
-  form = { name: '', email: '', message: '' };
-  success = '';
+  private http = inject(HttpClient);
   public language = inject(LanguageService);
 
-  submit(): void {
-    this.http.post('http://localhost:3000/api/contact', this.form).subscribe({
-      next: () => {
-        this.success = 'Message sent successfully.';
-        this.form = { name: '', email: '', message: '' };
+  form = {
+    name: '',
+    email: '',
+    message: ''
+  };
+
+  success = '';
+  error = '';
+
+  submit() {
+    this.success = '';
+    this.error = '';
+
+    this.http.post<{ message: string }>('/api/contact', this.form).subscribe({
+      next: (res) => {
+        this.success = res.message;
+        this.form = {
+          name: '',
+          email: '',
+          message: ''
+        };
       },
       error: () => {
-        this.success = 'Backend not running yet, but contact form UI is ready.';
+        this.error = 'Xabar yuborishda xatolik yuz berdi';
       }
     });
   }
