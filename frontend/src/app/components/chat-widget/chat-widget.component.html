@@ -1,0 +1,17 @@
+<div class="chat-widget glass-card">
+    <div class="chat-header">Yasmina AI</div>
+
+    <div class="chat-body">
+        <div *ngFor="let item of messages()" [class.user]="item.role === 'user'" [class.bot]="item.role === 'bot'"
+            class="chat-message">
+            {{ item.text }}
+        </div>
+    </div>
+
+    <div class="chat-input-row">
+        <input [(ngModel)]="input" type="text" placeholder="Savolingizni yozing..." (keyup.enter)="send()" />
+        <button class="btn btn-primary" (click)="send()" [disabled]="loading()">
+            {{ loading() ? '...' : 'Yuborish' }}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+import { Component, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf } from '@angular/common';
+import { ChatbotService } from '../../services/chatbot.service';
+
+type ChatItem = {
+    role: 'user' | 'bot';
+    text: string;
+};
+
+@Component({
+    selector: 'app-chat-widget',
+    standalone: true,
+    imports: [FormsModule, NgFor, NgIf],
+    templateUrl: './chat-widget.component.html',
+    styleUrl: './chat-widget.component.css'
+})
+export class ChatWidgetComponent {
+    private chatbot = inject(ChatbotService);
+
+    input = '';
+    loading = signal(false);
+    messages = signal<ChatItem[]>([
+        {
+            role: 'bot',
+            text: 'Salom! Men Yasmina Ice Cream yordamchisiman. Ta’mlar, buyurtma yoki aloqa bo‘yicha savol berishingiz mumkin.'
+        }
+    ]);
+
+    send() {
+        const text = this.input.trim();
+        if (!text || this.loading()) return;
+
+        this.messages.update(list => [...list, { role: 'user', text }]);
+        this.input = '';
+        this.loading.set(true);
+
+        this.chatbot.sendMessage(text).subscribe({
+            next: (res) => {
+                this.messages.update(list => [...list, { role: 'bot', text: res.reply }]);
+                this.loading.set(false);
+            },
+            error: () => {
+                this.messages.update(list => [
+                    ...list,
+                    { role: 'bot', text: 'Kechirasiz, hozir javob berishda xatolik yuz berdi.' }
+                ]);
+                this.loading.set(false);
+            }
+        });
+    }
+}

@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
+import { ChatWidgetComponent } from '../../components/chat-widget/chat-widget.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ChatWidgetComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
