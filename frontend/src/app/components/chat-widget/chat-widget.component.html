@@ -1,11 +1,27 @@
+<div class="chat-launcher" (click)="toggleChat()">
+    @if (!isOpen()) {
+    <span>💬</span>
+    } @else {
+    <span>✕</span>
+    }
+</div>
+
+@if (isOpen()) {
 <div class="chat-widget glass-card">
-    <div class="chat-header">Yasmina AI</div>
+    <div class="chat-header">
+        <div>
+            <strong>Yasmina AI</strong>
+            <p>Premium yordamchi</p>
+        </div>
+        <button class="close-btn" (click)="toggleChat(); $event.stopPropagation()">✕</button>
+    </div>
 
     <div class="chat-body">
-        <div *ngFor="let item of messages()" [class.user]="item.role === 'user'" [class.bot]="item.role === 'bot'"
-            class="chat-message">
+        @for (item of messages(); track $index) {
+        <div class="chat-message" [class.user]="item.role === 'user'" [class.bot]="item.role === 'bot'">
             {{ item.text }}
         </div>
+        }
     </div>
 
     <div class="chat-input-row">
@@ -15,3 +31,4 @@
         </button>
     </div>
 </div>
+}

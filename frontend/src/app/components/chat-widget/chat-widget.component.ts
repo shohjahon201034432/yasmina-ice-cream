@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { ChatbotService } from '../../services/chatbot.service';
 
 type ChatItem = {
@@ -11,21 +11,27 @@ type ChatItem = {
 @Component({
     selector: 'app-chat-widget',
     standalone: true,
-    imports: [FormsModule, NgFor, NgIf],
+    imports: [FormsModule, NgFor],
     templateUrl: './chat-widget.component.html',
     styleUrl: './chat-widget.component.css'
 })
 export class ChatWidgetComponent {
     private chatbot = inject(ChatbotService);
 
+    isOpen = signal(false);
     input = '';
     loading = signal(false);
+
     messages = signal<ChatItem[]>([
         {
             role: 'bot',
             text: 'Salom! Men Yasmina Ice Cream yordamchisiman. Ta’mlar, buyurtma yoki aloqa bo‘yicha savol berishingiz mumkin.'
         }
     ]);
+
+    toggleChat() {
+        this.isOpen.update(v => !v);
+    }
 
     send() {
         const text = this.input.trim();

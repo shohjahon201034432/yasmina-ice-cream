@@ -4,11 +4,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ThemeService } from './services/theme.service';
 import { AuthService } from './services/auth.service';
+import { ChatWidgetComponent } from './components/chat-widget/chat-widget.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, ChatWidgetComponent],
   template: `
     <div class="app-shell">
       <app-navbar></app-navbar>
@@ -17,6 +18,9 @@ import { AuthService } from './services/auth.service';
       </main>
       <app-footer></app-footer>
     </div>
+
+<app-chat-widget></app-chat-widget>
+
   `
 })
 export class AppComponent implements OnInit {
