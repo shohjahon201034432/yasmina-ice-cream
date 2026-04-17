@@ -106,3 +106,95 @@ body[data-theme='dark'] select {
   align-items: center;
   gap: 12px;
 }
+
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 15%, rgba(255,255,255,0.2), transparent 22%), radial-gradient(circle at 80% 10%, rgba(255,255,255,0.12), transparent 18%);
+  z-index: -1;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal-left { transform: translate3d(-36px, 0, 0); }
+.reveal-right { transform: translate3d(36px, 0, 0); }
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: grid;
+  place-items: center;
+  background: rgba(18, 12, 9, 0.4);
+  backdrop-filter: blur(10px);
+  animation: introFade 2.2s ease forwards;
+}
+
+.intro-core {
+  width: min(92vw, 360px);
+  border-radius: 34px;
+  padding: 28px;
+  text-align: center;
+}
+
+.intro-core img {
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  animation: floatyGlobal 3s ease-in-out infinite;
+}
+
+.intro-core h2 {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.intro-core p {
+  color: var(--muted);
+}
+
+.intro-loader {
+  margin-top: 18px;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.intro-loader span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: bounceDots 1s ease-in-out infinite;
+}
+
+.intro-loader span:nth-child(2) { animation-delay: 0.12s; }
+.intro-loader span:nth-child(3) { animation-delay: 0.24s; }
+
+@keyframes bounceDots {
+  0%, 100% { transform: translateY(0); opacity: 0.45; }
+  50% { transform: translateY(-8px); opacity: 1; }
+}
+
+@keyframes floatyGlobal {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes introFade {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}

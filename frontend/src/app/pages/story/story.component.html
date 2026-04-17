@@ -1,12 +1,12 @@
 <section class="section split-story">
-  <div>
+  <div appReveal>
     <span class="badge">{{ language.t('storyBadge') }}</span>
     <h1>{{ language.t('storyTitle') }}</h1>
     <p>{{ language.t('storyText') }}</p>
     <p>{{ language.t('storyRouteText') }}</p>
   </div>
 
-  <div class="timeline glass-card">
+  <div class="timeline glass-card" appReveal [origin]="'right'">
     <div>
       <strong>2026</strong>
       <p>{{ language.t('brandYearText') }}</p>
@@ -22,4 +22,14 @@
       <p>{{ language.t('experienceText') }}</p>
     </div>
   </div>
+</section>
+
+<section class="section values-grid">
+  @for (item of values; track item.title; let i = $index) {
+  <article class="value-card glass-card hover-lift" appReveal [delay]="(i * 0.08) + 's'">
+    <span class="value-index">0{{ i + 1 }}</span>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.text }}</p>
+  </article>
+  }
 </section>

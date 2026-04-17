@@ -1,21 +1,21 @@
-<section class="section hero-grid">
-  <div class="hero-copy">
+<section class="section hero-grid hero-shell">
+  <div class="hero-copy" appReveal>
     <span class="badge">{{ language.t('heroBadge') }}</span>
     <h1>{{ language.t('heroTitle') }}</h1>
     <p>{{ language.t('heroText') }}</p>
 
     <div class="hero-actions">
-      <a class="btn btn-primary" routerLink="/auth/sign-up">
-        {{ language.t('signUp') }}
-      </a>
-      <a class="btn btn-secondary" routerLink="/flavors">
+      <a class="btn btn-primary" routerLink="/flavors">
         {{ language.t('explore') }}
+      </a>
+      <a class="btn btn-secondary" routerLink="/contact">
+        {{ language.t('contact') }}
       </a>
     </div>
 
     <div class="stats-grid">
       @for (item of stats; track item.key) {
-      <article class="stat-card glass-card">
+      <article class="stat-card glass-card" appReveal [delay]="'0.08s'">
         <h3>{{ item.value }}</h3>
         <p>{{ language.t(item.key) }}</p>
       </article>
@@ -23,19 +23,120 @@
     </div>
   </div>
 
-  <div class="hero-visual floating-stage">
+  <div class="hero-visual floating-stage" appReveal [origin]="'right'">
     <div class="floating-ball ball-large"></div>
     <div class="floating-ball ball-medium"></div>
     <div class="floating-ball ball-small"></div>
 
+    <div class="ice-cream-orbit glass-card">
+      <div class="orbit-core">
+        <img src="assets/images/logo-round.png" alt="Yasmina logo" />
+      </div>
+      <span class="orbit-chip chip-a">{{ language.t('orbitChip1') }}</span>
+      <span class="orbit-chip chip-b">{{ language.t('orbitChip2') }}</span>
+      <span class="orbit-chip chip-c">{{ language.t('orbitChip3') }}</span>
+    </div>
+
     <article class="spotlight-card glass-card hover-lift">
-      <img src="assets/images/logo-round.png" alt="logo">
       <div>
+        <span class="tiny-label">{{ language.t('signatureMenu') }}</span>
         <h3>{{ language.t('yasminaSignature') }}</h3>
         <p>{{ language.t('caramelVanilla') }}</p>
+      </div>
+      <div class="mini-stack">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </article>
   </div>
 </section>
 
-<app-chat-widget></app-chat-widget>
+<section class="section marquee-band glass-card" appReveal>
+  <div class="marquee-track">
+    <span>{{ language.t('marquee1') }}</span>
+    <span>{{ language.t('marquee2') }}</span>
+    <span>{{ language.t('marquee3') }}</span>
+    <span>{{ language.t('marquee4') }}</span>
+    <span>{{ language.t('marquee1') }}</span>
+    <span>{{ language.t('marquee2') }}</span>
+  </div>
+</section>
+
+<section class="section features-shell">
+  <div class="section-heading" appReveal>
+    <span class="badge">{{ language.t('creativeFlow') }}</span>
+  </div>
+
+  <div class="feature-grid">
+    @for (item of highlights; track item.title; let i = $index) {
+    <article class="feature-card glass-card hover-lift" appReveal [delay]="(i * 0.08) + 's'">
+      <div class="icon-wrap">
+        @switch (i) {
+        @case (0) {
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M16 36c7-17 25-27 39-24-4 15-18 31-35 34-5 1-8-5-4-10Z" />
+          <path d="M18 46c4-11 16-20 28-23" />
+        </svg>
+        }
+        @case (1) {
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="22" r="10" />
+          <path d="M18 48c4-9 24-9 28 0" />
+          <path d="M12 34h8M44 34h8" />
+        </svg>
+        }
+        @default {
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="14" y="12" width="36" height="40" rx="12" />
+          <path d="M24 24h16M24 32h16M24 40h10" />
+        </svg>
+        }
+        }
+      </div>
+      <h3>{{ language.t(item.title) }}</h3>
+<p>{{ language.t(item.text) }}</p>
+    </article>
+    }
+  </div>
+</section>
+
+<section class="section showcase-grid">
+  <div class="showcase-copy" appReveal [origin]="'left'">
+    <span class="badge">{{ language.t('scrollMoments') }}</span>
+    <h2>{{ language.t('showcaseTitle') }}</h2>
+
+    <div class="promise-list">
+      @for (item of promises; track item) {
+      <div class="promise-item glass-card hover-lift">
+        <span class="check-dot"></span>
+      <p>{{ language.t(item) }}</p>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="showcase-stack" appReveal [origin]="'right'">
+    <article class="show-card card-main glass-card">
+      <span class="tiny-label">{{ language.t('brandLayer') }}</span>
+      <h3>{{ language.t('softGradientsTitle') }}</h3>
+      <p>{{ language.t('softGradientsText') }}</p>
+    </article>
+
+    <article class="show-card card-floating glass-card">
+      <span class="tiny-label">{{ language.t('microMotion') }}</span>
+      <h3>{{ language.t('hoverFloatRevealTitle') }}</h3>
+      <p>{{ language.t('hoverFloatRevealText') }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section cta-banner glass-card" appReveal>
+  <div>
+    <span class="badge">Yasmina</span>
+    <h2>{{ language.t('ctaPremiumMenu') }}</h2>
+  </div>
+  <a class="btn btn-primary" routerLink="/flavors">
+    {{ language.t('discoverMore') }}
+  </a>
+</section>

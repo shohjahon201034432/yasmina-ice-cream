@@ -1,12 +1,18 @@
-<section class="section page-intro">
+<section class="section page-intro" appReveal>
   <span class="badge">{{ lang.t('signatureMenu') }}</span>
   <h1>{{ lang.t('flavorsTitle') }}</h1>
   <p>{{ lang.t('flavorsText') }}</p>
 </section>
 
+<section class="section notes-row">
+  @for (note of notes; track note; let i = $index) {
+  <div class="note-pill glass-card" appReveal [delay]="(i * 0.07) + 's'">{{ note }}</div>
+  }
+</section>
+
 <section class="section flavor-grid">
-  @for (flavor of flavors; track flavor.id) {
-  <article class="flavor-card glass-card hover-lift">
+  @for (flavor of flavors; track flavor.id; let i = $index) {
+  <article class="flavor-card glass-card hover-lift" appReveal [delay]="(i * 0.06) + 's'">
     <div class="scoop-art"></div>
     <h3>{{ flavor.name }}</h3>
     <p>{{ flavor.subtitle }}</p>

@@ -1,11 +1,22 @@
 <section class="section contact-grid">
-  <div class="contact-copy">
+  <div class="contact-copy" appReveal>
     <span class="badge">{{ language.t('contactBadge') }}</span>
     <h1>{{ language.t('contactTitle') }}</h1>
     <p>{{ language.t('contactText') }}</p>
+
+    <div class="contact-mini-grid">
+      <article class="glass-card mini-card hover-lift">
+        <strong>Phone</strong>
+        <p>+998 95 471 55 55</p>
+      </article>
+      <article class="glass-card mini-card hover-lift">
+        <strong>Email</strong>
+        <p>yasminaicecream&#64;gmail.com</p>
+      </article>
+    </div>
   </div>
 
-  <form class="glass-card contact-form" (ngSubmit)="submit()">
+  <form class="glass-card contact-form" (ngSubmit)="submit()" appReveal [origin]="'right'">
     <input [(ngModel)]="form.name" name="name" [placeholder]="language.t('name')" required>
     <input [(ngModel)]="form.email" name="email" type="email" [placeholder]="language.t('email')" required>
     <textarea [(ngModel)]="form.message" name="message" rows="6" [placeholder]="language.t('message')"

@@ -1,34 +1,40 @@
 <div class="chat-launcher" (click)="toggleChat()">
-    @if (!isOpen()) {
-    <span>💬</span>
-    } @else {
-    <span>✕</span>
-    }
+  @if (!isOpen()) {
+  <span>💬</span>
+  } @else {
+  <span>✕</span>
+  }
 </div>
 
 @if (isOpen()) {
 <div class="chat-widget glass-card">
-    <div class="chat-header">
-        <div>
-            <strong>Yasmina AI</strong>
-            <p>Premium yordamchi</p>
-        </div>
-        <button class="close-btn" (click)="toggleChat(); $event.stopPropagation()">✕</button>
+  <div class="chat-header">
+    <div>
+      <strong>Yasmina AI</strong>
+      <p>Premium yordamchi</p>
     </div>
+    <button class="close-btn" (click)="toggleChat(); $event.stopPropagation()">✕</button>
+  </div>
 
-    <div class="chat-body">
-        @for (item of messages(); track $index) {
-        <div class="chat-message" [class.user]="item.role === 'user'" [class.bot]="item.role === 'bot'">
-            {{ item.text }}
-        </div>
-        }
+  <div class="chat-body">
+    @for (item of messages(); track $index) {
+    <div class="chat-message" [class.user]="item.role === 'user'" [class.bot]="item.role === 'bot'">
+      {{ item.text }}
     </div>
+    }
+  </div>
 
-    <div class="chat-input-row">
-        <input [(ngModel)]="input" type="text" placeholder="Savolingizni yozing..." (keyup.enter)="send()" />
-        <button class="btn btn-primary" (click)="send()" [disabled]="loading()">
-            {{ loading() ? '...' : 'Yuborish' }}
-        </button>
-    </div>
+  <div class="quick-row">
+    <button type="button" (click)="usePrompt('Ta’mlar haqida aytib bering')">Ta’mlar</button>
+    <button type="button" (click)="usePrompt('Narxlar qanday?')">Narxlar</button>
+    <button type="button" (click)="usePrompt('Aloqa ma’lumotlari kerak')">Aloqa</button>
+  </div>
+
+  <div class="chat-input-row">
+    <input [(ngModel)]="input" type="text" placeholder="Savolingizni yozing..." (keyup.enter)="send()" />
+    <button class="btn btn-primary" (click)="send()" [disabled]="loading()">
+      {{ loading() ? '...' : 'Yuborish' }}
+    </button>
+  </div>
 </div>
 }

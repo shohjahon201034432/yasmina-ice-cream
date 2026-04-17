@@ -106,7 +106,41 @@ export class LanguageService {
       language: 'Til',
       loading: 'Yuklanmoqda...',
       readMore: 'Batafsil',
-      discoverMore: 'Ko‘proq ko‘rish'
+      discoverMore: 'Ko‘proq ko‘rish',
+      orbitChip1: 'Kremli',
+orbitChip2: 'Ipakdek',
+orbitChip3: 'Premium',
+
+marquee1: 'Premium muzqaymoq tajribasi',
+marquee2: 'Brend estetikasi',
+marquee3: 'Scroll animatsiyalar',
+marquee4: 'Nafis vizual uslub',
+
+creativeFlow: 'Ijodiy oqim',
+scrollMoments: 'Scroll lahzalari',
+showcaseTitle: 'Foydalanuvchi sitega kirganda oddiy sahifa emas, balki haqiqiy brend tajribasini his qiladi.',
+
+brandLayer: 'Brend qatlami',
+softGradientsTitle: 'Yumshoq gradientlar va glass kartalar',
+softGradientsText: 'Nafis yorug‘lik va iliq karamel ranglari saytni premium darajaga olib chiqadi.',
+
+microMotion: 'Mikro animatsiya',
+hoverFloatRevealTitle: 'Hover, suzish va reveal effektlar',
+hoverFloatRevealText: 'Yengil harakatlar dizaynni shovqinli emas, balki premium qiladi.',
+
+ctaPremiumMenu: 'Ta’mlar sahifasini oching va premium menyuni ko‘ring.',
+highlightTitle1: 'Nafis harakat',
+highlightText1: 'Yumshoq suzuvchi elementlar, qatlamli gradientlar va kirish animatsiyasi birinchi ekranni esda qolarli qiladi.',
+
+highlightTitle2: 'Premium hikoyalash',
+highlightText2: 'Har bir bo‘lim oddiy biznes template emas, balki vizual brend sahifasi kabi qurilgan.',
+
+highlightTitle3: 'Zamonaviy scroll oqimi',
+highlightText3: 'Kartalar scroll paytida ochiladi, bo‘limlar jonli ko‘rinadi va ikonlar ko‘zni tabiiy ravishda boshqaradi.',
+
+promise1: 'Qo‘lda ishlangandek teksturalar va premium taqdimot',
+promise2: 'Silliq o‘tishlarga ega ko‘p tilli interfeys',
+promise3: 'Telefon, planshet va desktop uchun moslashuvchan dizayn',
     },
 
     en: {
@@ -188,7 +222,42 @@ export class LanguageService {
       language: 'Language',
       loading: 'Loading...',
       readMore: 'Read more',
-      discoverMore: 'Discover more'
+      discoverMore: 'Discover more',
+
+      orbitChip1: 'Creamy',
+      orbitChip2: 'Silky',
+      orbitChip3: 'Premium',
+
+      marquee1: 'Premium ice cream experience',
+      marquee2: 'Brand aesthetics',
+      marquee3: 'Scroll interactions',
+      marquee4: 'Elegant visual language',
+
+      creativeFlow: 'Creative flow',
+      scrollMoments: 'Scroll moments',
+      showcaseTitle: 'When users enter the site, they feel a brand experience rather than just a simple page.',
+
+      brandLayer: 'Brand layer',
+      softGradientsTitle: 'Soft gradients + glass cards',
+      softGradientsText: 'Elegant lighting and warm caramel tones make the whole site feel polished.',
+
+      microMotion: 'Micro motion',
+      hoverFloatRevealTitle: 'Hover, float and reveal',
+      hoverFloatRevealText: 'Subtle motion keeps the design premium instead of noisy.',
+
+      ctaPremiumMenu: 'Open the flavors page and explore the premium menu.',
+      highlightTitle1: 'Elegant Motion',
+highlightText1: 'Soft floating elements, layered gradients and cinematic entrance animation make the first screen memorable.',
+
+highlightTitle2: 'Premium Storytelling',
+highlightText2: 'Each section is built like a visual brand page, not just a simple business template.',
+
+highlightTitle3: 'Modern Scroll Flow',
+highlightText3: 'Cards reveal on scroll, sections feel alive, and icons guide the eye naturally through the page.',
+
+promise1: 'Handcrafted textures and premium presentation',
+promise2: 'Multi-language interface with smooth transitions',
+promise3: 'Responsive layout for phone, tablet and desktop',
     },
 
     ru: {
@@ -270,7 +339,41 @@ export class LanguageService {
       language: 'Язык',
       loading: 'Загрузка...',
       readMore: 'Подробнее',
-      discoverMore: 'Смотреть больше'
+      discoverMore: 'Смотреть больше',
+      orbitChip1: 'Кремовый',
+orbitChip2: 'Шёлковый',
+orbitChip3: 'Премиум',
+
+marquee1: 'Премиальный опыт мороженого',
+marquee2: 'Эстетика бренда',
+marquee3: 'Scroll анимации',
+marquee4: 'Элегантный визуальный стиль',
+
+creativeFlow: 'Творческий поток',
+scrollMoments: 'Scroll моменты',
+showcaseTitle: 'Пользователь ощущает не просто сайт, а настоящий брендовый опыт.',
+
+brandLayer: 'Слой бренда',
+softGradientsTitle: 'Мягкие градиенты и glass-карты',
+softGradientsText: 'Тёплые карамельные оттенки создают ощущение премиума.',
+
+microMotion: 'Микро-анимации',
+hoverFloatRevealTitle: 'Hover, float и reveal эффекты',
+hoverFloatRevealText: 'Лёгкие движения делают дизайн более премиальным.',
+
+ctaPremiumMenu: 'Откройте страницу вкусов и посмотрите премиум меню.',
+highlightTitle1: 'Элегантное движение',
+highlightText1: 'Мягкие плавающие элементы, многослойные градиенты и кинематографичная анимация делают первый экран запоминающимся.',
+
+highlightTitle2: 'Премиальная подача',
+highlightText2: 'Каждый раздел построен как визуальная страница бренда, а не как обычный бизнес-шаблон.',
+
+highlightTitle3: 'Современный scroll-поток',
+highlightText3: 'Карточки появляются при прокрутке, разделы выглядят живыми, а иконки естественно ведут взгляд по странице.',
+
+promise1: 'Текстуры ручной работы и премиальная подача',
+promise2: 'Мультиязычный интерфейс с плавными переходами',
+promise3: 'Адаптивный макет для телефона, планшета и компьютера',
     }
   };
 

@@ -1,15 +1,43 @@
-.page-intro { text-align: center; }
-.page-intro h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); margin: 16px 0; }
-.page-intro p { color: var(--muted); }
+.page-intro {
+  text-align: center;
+}
+
+.page-intro h1 {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  margin: 16px 0;
+}
+
+.page-intro p,
+.flavor-card p {
+  color: var(--muted);
+}
+
+.notes-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 0;
+}
+
+.note-pill {
+  padding: 14px 18px;
+  border-radius: 999px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
 .flavor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
+
 .flavor-card {
   padding: 22px;
   border-radius: 30px;
 }
+
 .scoop-art {
   height: 240px;
   border-radius: 24px;
@@ -18,7 +46,35 @@
     radial-gradient(circle at 35% 30%, rgba(249,231,212,0.95), rgba(216,164,119,0.95) 54%, rgba(167,106,59,0.95) 100%),
     linear-gradient(135deg, rgba(255,255,255,0.5), transparent);
   box-shadow: inset 0 0 50px rgba(255,255,255,0.35);
+  position: relative;
+  overflow: hidden;
 }
+
+.scoop-art::before,
+.scoop-art::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.28);
+  filter: blur(8px);
+}
+
+.scoop-art::before {
+  width: 120px;
+  height: 120px;
+  top: 12px;
+  left: 20px;
+}
+
+.scoop-art::after {
+  width: 90px;
+  height: 90px;
+  right: 16px;
+  bottom: 20px;
+}
+
 @media (max-width: 980px) {
-  .flavor-grid { grid-template-columns: 1fr; }
+  .flavor-grid {
+    grid-template-columns: 1fr;
+  }
 }
