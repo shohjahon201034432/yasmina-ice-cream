@@ -21,14 +21,43 @@ export class ContactComponent {
 
   success = '';
   error = '';
+  sending = false;
 
-  submit() {
+  async submit() {
     this.error = '';
-    this.success = 'Xabaringiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.';
-    this.form = {
-      name: '',
-      email: '',
-      message: ''
-    };
+    this.success = '';
+
+    if (!this.form.name || !this.form.email || !this.form.message) {
+      this.error = 'Iltimos, barcha maydonlarni to‘ldiring.';
+      return;
+    }
+
+    this.sending = true;
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.form)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.message || 'Xabar yuborilmadi');
+      }
+
+      this.success = 'Xabaringiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.';
+
+      this.form = {
+        name: '',
+        email: '',
+        message: ''
+      };
+    } catch (err: any) {
+      this.error = err?.message || 'Serverda xatolik yuz berdi';
+    } finally {
+      this.sending = false;
+    }
   }
 }
